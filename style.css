@@ -1,0 +1,151 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    min-width: 600px;
+}
+.container {
+    max-width: 900px;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+h1 {
+    color: #005a9c;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+h2 { color: #333; margin-top: 0; }
+h3 {
+    margin-top: 25px;
+    color: #005a9c;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+/* Tab Navigation */
+.tab-nav {
+    display: flex;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 20px;
+}
+.tab-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #555;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+}
+.tab-button.active {
+    color: #007bff;
+    border-bottom-color: #007bff;
+}
+.tab-button:hover { background-color: #f9f9f9; }
+/* Task Containers */
+.task-container { animation: fadeIn 0.5s; }
+.task-container.hidden { display: none; }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* --- MODIFIED: Form Grids now hold containers --- */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px 20px;
+    margin-bottom: 20px;
+}
+.form-grid-single {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* --- NEW: Container for each label/input group --- */
+.form-field-container {
+    display: flex;
+    flex-direction: column; /* Stacks label, input, and limits text vertically */
+    gap: 5px; /* Adds a small space between them */
+}
+
+label {
+    font-weight: 600;
+    line-height: 1.4;
+    /* padding-top: 8px; --- No longer needed */
+}
+
+/* --- NEW: Style for the (Range: min to max) text --- */
+.input-limits {
+    font-size: 0.85em;
+    color: #555;
+    font-style: italic;
+}
+
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+button:hover { background-color: #0056b3; }
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+/* Result Boxes */
+.result-box {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+.result-box p {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+}
+.result-box p.claim { color: #d93025; }
+.result-box p.no-claim { color: #1a73e8; }
+.result-box p.regression { color: #333; }
+/* Loading Spinner */
+.spinner {
+    margin: 10px auto;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007bff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

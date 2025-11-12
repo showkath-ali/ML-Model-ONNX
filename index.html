@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Model Deployment</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Model Deployment using ONNX</h1>
+        <p>Select a task to run predictions with different models.</p>
+
+        <div class="tab-nav">
+            <button id="tab-btn-regression" class="tab-button active">Car Price Prediction (Regression)</button>
+            <button id="tab-btn-classification" class="tab-button">Insurance Claim Prediction (Classification)</button>
+        </div>
+
+        <div id="task-regression" class="task-container">
+            <form id="regression-form">
+                <h2>Car Price Prediction (Regression)</h2>
+                
+                <h3>Numeric Features</h3>
+                <div id="reg-numeric-grid" class="form-grid">
+                    </div>
+                
+                <h3>Categorical Features</h3>
+                <div id="reg-categorical-grid" class="form-grid">
+                    </div>
+
+                <h3>Select Model (R² Score)</h3>
+                <div class="form-grid-single">
+                    <label for="reg-model-select">Choose a model to run:</label>
+                    <select id="reg-model-select">
+                        </select>
+                </div>
+
+                <button type="submit" id="reg-predict-button">Predict Price</button>
+                <div id="reg-loading-spinner" class="spinner" style="display: none;"></div>
+            </form>
+
+            <div id="reg-result" class="result-box">
+                <h2>Predicted Price:</h2>
+                <p>--</p>
+            </div>
+        </div>
+
+        <div id="task-classification" class="task-container hidden">
+            <form id="classification-form">
+                <h2>Insurance Claim Prediction (Classification)</h2>
+
+                <h3>Numeric Features</h3>
+                <div id="class-numeric-grid" class="form-grid">
+                    </div>
+                
+                <h3>Categorical Features</h3>
+                <div id="class-categorical-grid" class="form-grid">
+                    </div>
+
+                <h3>Select Model (F1-Score)</h3>
+                <div class="form-grid-single">
+                    <label for="class-model-select">Choose a model to run:</label>
+                    <select id="class-model-select">
+                        </select>
+                </div>
+
+                <button type="submit" id="class-predict-button">Predict Claim</button>
+                <div id="class-loading-spinner" class="spinner" style="display: none;"></div>
+            </form>
+
+            <div id="class-result" class="result-box">
+                <h2>Prediction:</h2>
+                <p>--</p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>
